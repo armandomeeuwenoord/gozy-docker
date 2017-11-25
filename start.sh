@@ -27,6 +27,3 @@ sed "s/%PORT%/$public_port/g; s/%DOMAIN%/$instance_domain/g; s/%SERVER_PORT%/$se
 ln -s "/etc/nginx/sites-available/${instance_domain}.conf" /etc/nginx/sites-enabled/
 echo "⋅ Starting NGinx…"
 service nginx start
-
-echo "Running"
-read
