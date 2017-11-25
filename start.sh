@@ -1,8 +1,6 @@
 #!/bin/bash
 echo "⋅ Starting CouchDB…"
 sudo -b -i -u couchdb sh -c '/home/couchdb/bin/couchdb >> /var/log/couchdb/couch.log 2>> /var/log/couchdb/couch-err.log'
-sleep 10
-
 
 export public_port=1443
 export server_port=8080
@@ -26,4 +24,5 @@ echo "⋅ Configuring NGinx…"
 sed "s/%PORT%/$public_port/g; s/%DOMAIN%/$instance_domain/g; s/%SERVER_PORT%/$server_port/g" /etc/cozy/nginx-config > "/etc/nginx/sites-available/${instance_domain}.conf"
 ln -s "/etc/nginx/sites-available/${instance_domain}.conf" /etc/nginx/sites-enabled/
 echo "⋅ Starting NGinx…"
+sed -i '1idaemon off;\' /etc/nginx/nginx.conf
 nginx
