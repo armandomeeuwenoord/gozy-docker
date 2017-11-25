@@ -9,3 +9,4 @@ Sample Dockerfile to build an image embedding a Gozy server.
  - start a shell inside a running container: `docker exec -ti gozy /bin/bash`
 
 Using the default parameters, you should be able to connect to the server on `https://cozy.tools:1443` (the certificate is self signed, so so you should manually allow your browser to connect).
+
