@@ -17,9 +17,10 @@ RUN apt-get update && apt-get --no-install-recommends -y install \
 
 
 # Cozy-stack
-RUN curl -LO https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz && \
+RUN cd /tmp && \
+    curl -LO https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.8.3.linux-amd64.tar.gz && \
-    export GOPATH=/usr/local/go && \
+    GOPATH=/tmp && \
     PATH=$PATH:/usr/local/go/bin go get -u github.com/cozy/cozy-stack && \
     cp /root/go/bin/cozy-stack /usr/local/bin/cozy-stack && \
     chmod +x /usr/local/bin/cozy-stack && \
