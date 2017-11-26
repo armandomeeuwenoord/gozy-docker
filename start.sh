@@ -2,7 +2,7 @@
 echo "⋅ Starting CouchDB…"
 sudo -b -i -u couchdb sh -c '/home/couchdb/bin/couchdb'
 
-export public_port=1443
+export public_port=443
 export server_port=8080
 export instance_domain=codingexperts.nl
 export COZY_ADMIN_PASSWORD=asd3eeiuhasiuhd83e
