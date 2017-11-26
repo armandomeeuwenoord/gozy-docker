@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "⋅ Starting CouchDB…"
-sudo -b -i -u couchdb sh -c '/home/couchdb/bin/couchdb >> /var/log/couchdb/couch.log 2>> /var/log/couchdb/couch-err.log'
+sudo -b -i -u couchdb sh -c '/home/couchdb/bin/couchdb'
 
 export public_port=1443
 export server_port=8080
@@ -8,8 +8,9 @@ export instance_domain=codingexperts.nl
 export COZY_ADMIN_PASSWORD=asd3eeiuhasiuhd83e
 export server_pass=asd3eeiuhasiuhd83e
 
-
+if [ ! -f "/etc/cozy/cozy-admin-passphrase" ]; then
 echo -e "$COZY_ADMIN_PASSWORD\n$COZY_ADMIN_PASSWORD" | /usr/local/bin/cozy-stack config passwd /etc/cozy/ > /dev/null
+fi 
 #for pid in $(pgrep cozy-stack); do kill -15 $pid;done
 echo "Starting Cozy stack…"
 sudo -b -u cozy sh -c '/usr/local/bin/cozy-stack serve --log-level debug --host 0.0.0.0'
