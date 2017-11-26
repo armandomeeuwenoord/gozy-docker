@@ -1,6 +1,7 @@
 FROM debian:jessie
 
 RUN apt-get update && apt-get --no-install-recommends -y install \
+            git \
             ca-certificates \
             curl \
             net-tools \
