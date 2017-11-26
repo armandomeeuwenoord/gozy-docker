@@ -63,6 +63,6 @@ COPY ./nginx-config /etc/cozy/
 
 RUN chmod +x /start.sh
 
-EXPOSE 8080 6060 5984 1443
+EXPOSE 8080 6060 5984 443
 
 ENTRYPOINT ["/start.sh"]
