@@ -13,7 +13,7 @@ echo -e "$COZY_ADMIN_PASSWORD\n$COZY_ADMIN_PASSWORD" | /usr/local/bin/cozy-stack
 fi 
 #for pid in $(pgrep cozy-stack); do kill -15 $pid;done
 echo "Starting Cozy stack…"
-sudo -b -u cozy sh -c '/usr/local/bin/cozy-stack serve --log-level debug --host 0.0.0.0'
+sudo -u cozy sh -c '/usr/local/bin/cozy-stack serve --log-level debug --host 0.0.0.0'
 #cozy-stack instances destroy "cozy.tools:8080" 2>/dev/null
 sleep 10
 echo "⋅ Creating instance…"
